@@ -1,42 +1,14 @@
 const container = document.querySelector('.container');
 
-// container.append(content)
-// content.classList.add('content');
-// content.textContent = 'This is the glorious text-content!';
-
-// container.appendChild(content);
 
 
 
 
+function resetGrid() {
 
-// for(i = 0; i < 16; i++){
-    //create the row
-    // const row = document.createElement('div')
-    // row.classList.add('row')
   
-    
-    //for loop to create 16 divs for 1 row
-    // for(j = 0; j < 16; i++){
-    // const content = document.createElement('div')
-    // content.classList.add('block')
-    // row.appendChild(content)
+}
 
-    // }
-    // container.appendChild(row)
-    
-// }
-
-
-// for(i = 0; i < 16; i++){
-//     const content = document.createElement('div')
-//     content.classList.add('block')
-//     container.appendChild(content)
-    
-//     }
-
-
-// Sets important constants and variables
 
 function makeRows(rows, cols) {
   container.style.setProperty('--grid-rows', rows);
@@ -49,7 +21,12 @@ function makeRows(rows, cols) {
   };
 };
 
-makeRows(16, 16);
+
+// let grid = document.getElementById("grid")
+// console.log(grid)
+let grid = 4;
+
+makeRows(grid = 16, grid = 16);
 
 const squares = document.querySelectorAll(".grid-item")
 const reset = document.getElementById('reset')
@@ -57,8 +34,6 @@ const reset = document.getElementById('reset')
 squares.forEach((square) => {
     square.addEventListener('mousemove', ()=> {
         square.style.backgroundColor = "black";
-
-
 
     });
     reset.addEventListener('click',() => {
