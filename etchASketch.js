@@ -1,14 +1,10 @@
-const container = document.querySelector('.container');
+const container = document.querySelector('.grid');
 
-
-
-
-
-function resetGrid() {
-
-  
+function removeGrid() {
+  gridItem = document.querySelectorAll(".grid-item");
+  for (let i = 0; i < gridItem.length; i++)
+  gridItem[i].remove();
 }
-
 
 function makeRows(rows, cols) {
   container.style.setProperty('--grid-rows', rows);
@@ -21,18 +17,32 @@ function makeRows(rows, cols) {
   };
 };
 
+let submit = document.getElementById("change");
+let clear = document.getElementById("clear");
+let gridNum = 16;
+let grid = document.getElementById("gridNum");
+console.log(gridNum);
 
-// let grid = document.getElementById("grid")
-// console.log(grid)
-let grid = 4;
 
-makeRows(grid = 16, grid = 16);
+submit.addEventListener("click", ()=>{
+  removeGrid();
+  gridNum = document.getElementById("gridNum").value;
+  makeRows(gridNum, gridNum)
+  draw();
+});
 
+
+
+
+makeRows(gridNum, gridNum);
+draw();
+
+function draw() {
 const squares = document.querySelectorAll(".grid-item")
 const reset = document.getElementById('reset')
 
 squares.forEach((square) => {
-    square.addEventListener('mousemove', ()=> {
+    square.addEventListener("mousemove", ()=> {
         square.style.backgroundColor = "black";
 
     });
@@ -43,4 +53,5 @@ squares.forEach((square) => {
     
 });
 
+};
 
