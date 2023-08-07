@@ -6,10 +6,13 @@ function removeGrid() {
   gridItem[i].remove();
 }
 
-function makeRows(rows, cols) {
-  container.style.setProperty('--grid-rows', rows);
-  container.style.setProperty('--grid-cols', cols);
-  for (c = 0; c < (rows * cols); c++) {
+function makeRows(num) {
+  // Set the container size
+  container.style.setProperty('--grid-rows', num);
+  container.style.setProperty('--grid-cols', num);
+
+  //append the squares
+  for (c = 0; c < (num * num); c++) {
     let cell = document.createElement("div");
     // cell.innerText = (c + 1);
     cell.classList.add('grid-item')
@@ -21,12 +24,16 @@ let submit = document.getElementById("change");
 let clear = document.getElementById("clear");
 let gridNum = 16;
 let grid = document.getElementById("gridNum");
-console.log(gridNum);
+
 
 
 submit.addEventListener("click", ()=>{
   removeGrid();
   gridNum = document.getElementById("gridNum").value;
+  if (gridNum > 64){
+    gridNum = 64
+  }
+  console.log(gridNum)
   makeRows(gridNum, gridNum)
   draw();
 });
@@ -34,7 +41,7 @@ submit.addEventListener("click", ()=>{
 
 
 
-makeRows(gridNum, gridNum);
+makeRows(gridNum);
 draw();
 
 function draw() {
